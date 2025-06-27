@@ -1,0 +1,46 @@
+# Bibliography
+
+Dehazing is a wide class of image processing problems, with several
+categories of solution:
+
+-   **Model-based** dehazing uses a model of light propagation into the
+    camera sensor (an Image Formation Model, see [@jaffe_computer_1990]
+    and [@schechner_clear_2004]) in conjunction with a statistical prior
+    about the distribution of intensities in images without haze. The
+    success of model-based methods depends significantly on the quality
+    of their priors, which are therefore designed to apply to as
+    restricted a class of images as possible.
+
+-   **Model-free** dehazing uses more traditional image processing
+    techniques to improve the quality of hazy images (histogram
+    equalization, color correction, etc.).
+
+-   **Machine learning** solutions usually run CNNs on hazy images to
+    predict the ground truth haze-free scene.
+
+-   Finally, some systems use **specialized hardware** like polarizing
+    filters, lasers, or multiple camera sensors to gain extra
+    information about a scene before dehazing. I will not consider
+    these.
+
+Thus far, I believe these algorithms represent good starting points to
+test dehazing performance:
+
+                                    Algorithm  Year    Technique    Fluid   Media
+  ------------------------------------------- ------ ------------- ------- -------
+                        DCP [@he_single_2009]  2009   Model-based    Air    Image
+           UDCP [@drews_jr_transmission_2013]  2013   Model-based   Water   Image
+        MIP [@carlevaris-bianco_initial_2010]  2010   Model-based   Water   Image
+                  HL [@berman_non-local_2016]  2016   Model-based    Air    Image
+    HL (underwater) [@berman_underwater_2021]  2021   Model-based   Water   Image
+                      ULAP [@song_rapid_2018]  2018   Model-based   Water   Image
+             DCP + TF [@qing_underwater_2016]  2016   Model-based    Air    Video
+                UWCNN [@li_underwater_2020-1]  2020    Learning     Water   Video
+               WaterNet [@li_underwater_2020]  2020    Learning     Water   Image
+           UIEC\^2-Net [@wang_uiec2-net_2021]  2021    Learning     Water   Image
+
+Some of these models were selected for their high performance and recent
+publication, but some were selected because they represent baseline
+algorithms against which to compare other models. I still need to
+identify pipelines that fit these criteria in the model-free domain, and
+to find more recent algorithms which target video dehazing.

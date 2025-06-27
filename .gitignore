@@ -1,4 +1,6 @@
 venv
 .mypy_cache
 *_files
+_book
 *.html
+*.quarto_ipynb

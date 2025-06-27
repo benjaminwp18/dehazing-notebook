@@ -1,0 +1,28 @@
+project:
+  type: book
+
+book:
+  title: "Dehazing Notebook"
+  author: "Benjamin Poulin"
+  # date: "6/27/2025"
+  chapters:
+    - index.qmd
+    - bibliography.qmd
+    - part: "Progress"
+      chapters:
+        - 2025.06.27.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: proceedings-of-the-ieee.csl
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+
+
