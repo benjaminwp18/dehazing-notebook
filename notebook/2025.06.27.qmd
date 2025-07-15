@@ -46,7 +46,7 @@ def make_metric_data(metrics_json, metric_name: str):
 
   return data
 
-with open('/home/user/Documents/ms/underwater-dehazing-toolkit/metrics.json', 'r') as metrics:
+with open('../data/metrics.json', 'r') as metrics:
   metrics_json = json.load(metrics)
   for metric in REF_METRICS:
     ref_data[metric] = make_metric_data(metrics_json, metric)
@@ -96,7 +96,7 @@ See @fig-images for examples of dehazed images.
 from pathlib import Path
 import cv2
 
-BASE_PATH = Path('/home/user/Documents/ms/underwater-dehazing-toolkit/deepblue')
+BASE_PATH = Path('/home/mantis/Documents/ms/underwater-dehazing-toolkit/data/deepblue')
 FILES = ('02.png', '10.png', '20.png')
 
 fig, axs = plt.subplots(nrows=len(FILES), ncols=len(PIPELINES), sharex=True, sharey=True)

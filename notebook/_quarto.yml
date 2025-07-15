@@ -11,6 +11,7 @@ book:
     - part: "Progress"
       chapters:
         - 2025.06.27.qmd
+        - 2025.07.11.qmd
     - references.qmd
 
 bibliography: references.bib
