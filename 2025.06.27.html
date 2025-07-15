@@ -67,7 +67,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./2025.07.11.html" rel="next">
 <link href="./bibliography.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -78,7 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1ec70e65bb07bb7849483fce6f8c2269.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d384f42c63522950173d34c9de3e7cc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -171,6 +171,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Basic metrics</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2025.07.11.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Runtime Trials</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item">
@@ -228,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>I evaluated output quality on the DeepBlue reference dataset for TCLAHE, DCP, UDCP, and TCLAHE followed by UDCP. I used reference metrics MSE, PSNR, and SSIM, and referenceless metrics entropy and UCIQE. See <a href="#fig-metrics" class="quarto-xref">Figure&nbsp;<span>2.1</span></a>.</p>
-<div id="9907555e" class="cell" data-execution_count="1">
+<div id="04c129c5" class="cell" data-execution_count="1">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> json</span>
@@ -265,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> data</span>
 <span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/home/user/Documents/ms/underwater-dehazing-toolkit/metrics.json'</span>, <span class="st">'r'</span>) <span class="im">as</span> metrics:</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../data/metrics.json'</span>, <span class="st">'r'</span>) <span class="im">as</span> metrics:</span>
 <span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  metrics_json <span class="op">=</span> json.load(metrics)</span>
 <span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> metric <span class="kw">in</span> REF_METRICS:</span>
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>    ref_data[metric] <span class="op">=</span> make_metric_data(metrics_json, metric)</span>
@@ -342,7 +348,7 @@ Figure&nbsp;2.1: Reference and referenceless Metrics for TCLAHE, DCP, UDCP, and 
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>BASE_PATH <span class="op">=</span> Path(<span class="st">'/home/user/Documents/ms/underwater-dehazing-toolkit/deepblue'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>BASE_PATH <span class="op">=</span> Path(<span class="st">'/home/mantis/Documents/ms/underwater-dehazing-toolkit/data/deepblue'</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>FILES <span class="op">=</span> (<span class="st">'02.png'</span>, <span class="st">'10.png'</span>, <span class="st">'20.png'</span>)</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="bu">len</span>(FILES), ncols<span class="op">=</span><span class="bu">len</span>(PIPELINES), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
@@ -855,8 +861,8 @@ Figure&nbsp;2.2: Low (<code>02.png</code>), medium (<code>10.png</code>), and hi
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="References">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./2025.07.11.html" class="pagination-link" aria-label="Runtime Trials">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Runtime Trials</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -908,7 +914,7 @@ Figure&nbsp;2.2: Low (<code>02.png</code>), medium (<code>10.png</code>), and hi
 <span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> data</span>
 <span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'/home/user/Documents/ms/underwater-dehazing-toolkit/metrics.json'</span>, <span class="st">'r'</span>) <span class="im">as</span> metrics:</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../data/metrics.json'</span>, <span class="st">'r'</span>) <span class="im">as</span> metrics:</span>
 <span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  metrics_json <span class="op">=</span> json.load(metrics)</span>
 <span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> metric <span class="kw">in</span> REF_METRICS:</span>
 <span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    ref_data[metric] <span class="op">=</span> make_metric_data(metrics_json, metric)</span>
@@ -958,7 +964,7 @@ Figure&nbsp;2.2: Low (<code>02.png</code>), medium (<code>10.png</code>), and hi
 <span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2</span>
 <span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>BASE_PATH <span class="op">=</span> Path(<span class="st">'/home/user/Documents/ms/underwater-dehazing-toolkit/deepblue'</span>)</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>BASE_PATH <span class="op">=</span> Path(<span class="st">'/home/mantis/Documents/ms/underwater-dehazing-toolkit/data/deepblue'</span>)</span>
 <span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>FILES <span class="op">=</span> (<span class="st">'02.png'</span>, <span class="st">'10.png'</span>, <span class="st">'20.png'</span>)</span>
 <span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="bu">len</span>(FILES), ncols<span class="op">=</span><span class="bu">len</span>(PIPELINES), sharex<span class="op">=</span><span class="va">True</span>, sharey<span class="op">=</span><span class="va">True</span>)</span>
