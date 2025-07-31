@@ -4,7 +4,6 @@ project:
 book:
   title: "Dehazing Notebook"
   author: "Benjamin Poulin"
-  # date: "6/27/2025"
   chapters:
     - index.qmd
     - bibliography.qmd
@@ -12,6 +11,7 @@ book:
       chapters:
         - 2025.06.27.qmd
         - 2025.07.11.qmd
+        - 2025.07.31.qmd
     - references.qmd
 
 bibliography: references.bib

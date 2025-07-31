@@ -7,6 +7,7 @@ format:
 jupyter: python3
 author: Benjamin Poulin
 date: 2025-06-27
+lightbox: true
 ---
 
 I evaluated output quality on the DeepBlue reference dataset for TCLAHE, DCP, UDCP, and TCLAHE followed by UDCP. I used reference metrics MSE, PSNR, and SSIM, and referenceless metrics entropy and UCIQE. See @fig-metrics.

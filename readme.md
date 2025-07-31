@@ -25,4 +25,4 @@ Whole site:
 quarto preview notebook
 ```
 
-Or `ctrl` + `k` for a single file in VSCode.
+Or `ctrl` + `shift` + `k` for a single file in VSCode.
